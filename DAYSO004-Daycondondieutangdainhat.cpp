@@ -35,9 +35,6 @@ int main() {
         }
 
         cout << max_length << endl; // In ra độ dài dãy con tăng dài nhất
-        /*for (int i : dp){
-            cout << i;
-        }*/
     }
 
     return 0;

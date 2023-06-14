@@ -1,18 +1,40 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-int main(){
-    int n;
-    //cin >> n;
-    //vector<int> a[n];
-    vector<vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    //cout << matrix.size();
-    cout << endl;
-    for (int i=0; i<= matrix.size()-1; i++){
-        for(int j = 0; j <= matrix.size()-1; j++){
-            //cout << matrix[i][j]<< ' ';
+// Hàm chuyển đổi từ mã nhị phân thành mã Gray
+string binaryToGray(string binary) {
+    string gray = "";
+    gray += binary[0];
+
+    for (int i = 1; i < binary.length(); ++i) {
+        // XOR giữa bit hiện tại của mã nhị phân và bit trước đó của mã Gray
+        if (binary[i] != gray[i - 1]) {
+            gray += '1';
+        } else {
+            gray += '0';
         }
-        //cout << endl;
     }
-    cout << matrix[0][1];
+
+    return gray;
+}
+
+int main() {
+    int T;
+    cin >> T; // Số lượng test
+
+    for (int testCase = 0; testCase < T; ++testCase) {
+        int n;
+        cin >> n; // Độ dài của xâu nhị phân
+
+        string binary;
+        cin >> binary; // Đọc xâu nhị phân từ đầu vào
+
+        string gray = binaryToGray(binary); // Chuyển đổi thành xâu mã Gray
+
+        cout << gray << endl; // In ra xâu mã Gray tương ứng
+    }
+
+    return 0;
 }
